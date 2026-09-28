@@ -1,0 +1,194 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Base ─────────────────────────────────────────────────────── */
+@layer base {
+    html {
+        font-family: 'Inter', sans-serif;
+        -webkit-font-smoothing: antialiased;
+    }
+    body {
+        @apply text-gray-800;
+        color: #374151;
+    }
+}
+
+/* ─── Components ────────────────────────────────────────────────── */
+@layer components {
+
+    /* Buttons */
+    .btn-primary {
+        @apply px-4 py-2 text-white font-semibold rounded-xl
+               transition-all duration-200 active:scale-[0.98] text-sm
+               bg-primary-500 hover:bg-primary-600;
+    }
+    .btn-secondary {
+        @apply px-4 py-2 bg-white hover:bg-gray-50 text-gray-700 font-semibold rounded-xl
+               border border-gray-200 hover:border-gray-300 transition-all duration-200 text-sm;
+    }
+    .btn-danger {
+        @apply px-4 py-2 text-white font-semibold rounded-xl
+               transition-all duration-200 text-sm;
+        background-color: #EF4444;
+    }
+    .btn-danger:hover {
+        background-color: #DC2626;
+    }
+    .btn-success {
+        @apply px-4 py-2 text-white font-semibold rounded-xl
+               transition-all duration-200 text-sm;
+        background-color: #22C55E;
+    }
+    .btn-success:hover {
+        background-color: #16A34A;
+    }
+    .btn-warning {
+        @apply px-4 py-2 text-white font-semibold rounded-xl
+               transition-all duration-200 text-sm;
+        background-color: #EAB308;
+    }
+    .btn-warning:hover {
+        background-color: #CA8A04;
+    }
+
+    /* Form Inputs */
+    .form-input {
+        @apply w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none
+               focus:ring-2 focus:ring-primary-400 focus:border-transparent transition text-sm;
+    }
+    .input-field {
+        @apply w-full px-4 py-2.5 rounded-xl border border-gray-200 bg-white
+               focus:outline-none focus:ring-2 focus:ring-primary-400 focus:border-transparent
+               transition text-sm placeholder-gray-400;
+        color: #374151;
+    }
+    .form-label {
+        @apply block text-sm font-medium mb-1;
+        color: #374151;
+    }
+    .form-error {
+        @apply mt-1 text-xs;
+        color: #EF4444;
+    }
+
+    /* Cards */
+    .card {
+        @apply bg-white rounded-2xl p-6 transition-shadow duration-200;
+        box-shadow: 0 2px 12px 0 rgba(249, 115, 22, 0.07);
+    }
+    .card-hover {
+        @apply hover:shadow-lg;
+    }
+
+    /* Badges */
+    .badge {
+        @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold;
+    }
+    .badge-success {
+        @apply badge;
+        background-color: #DCFCE7;
+        color: #16A34A;
+    }
+    .badge-warning {
+        @apply badge;
+        background-color: #FEF9C3;
+        color: #A16207;
+    }
+    .badge-danger {
+        @apply badge;
+        background-color: #FEE2E2;
+        color: #DC2626;
+    }
+    .badge-info {
+        @apply badge;
+        background-color: #DBEAFE;
+        color: #1D4ED8;
+    }
+    .badge-primary {
+        @apply badge;
+        background-color: #FED7AA;
+        color: #C2410C;
+    }
+    .badge-gray {
+        @apply badge;
+        background-color: #F3F4F6;
+        color: #6B7280;
+    }
+
+    /* Table */
+    .table-header {
+        @apply px-4 py-3 text-left text-xs font-semibold uppercase tracking-wider;
+        color: #9CA3AF;
+    }
+    .table-cell {
+        @apply px-4 py-3 text-sm;
+        color: #374151;
+    }
+
+    /* Product Card (PWA) */
+    .product-card {
+        @apply bg-white rounded-2xl overflow-hidden transition-all duration-200 cursor-pointer;
+        box-shadow: 0 2px 12px 0 rgba(249, 115, 22, 0.07);
+    }
+    .product-card:hover {
+        box-shadow: 0 8px 30px 0 rgba(249, 115, 22, 0.18);
+    }
+
+    /* Admin/Co-Admin Active Nav Link */
+    .nav-active {
+        background-color: #F97316;
+        color: #ffffff;
+        box-shadow: 0 2px 8px rgba(249, 115, 22, 0.35);
+    }
+    .nav-inactive {
+        color: #9CA3AF;
+    }
+    .nav-inactive:hover {
+        background-color: rgba(249, 115, 22, 0.1);
+        color: #F97316;
+    }
+
+    /* Custom scrollbar */
+    .custom-scrollbar::-webkit-scrollbar {
+        width: 4px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+        background: transparent;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+        background-color: rgba(249, 115, 22, 0.2);
+        border-radius: 9999px;
+    }
+}
+
+/* ─── Utilities ─────────────────────────────────────────────────── */
+@layer utilities {
+    .scrollbar-hide {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+    .scrollbar-hide::-webkit-scrollbar {
+        display: none;
+    }
+    .safe-bottom {
+        padding-bottom: env(safe-area-inset-bottom, 16px);
+    }
+    .safe-top {
+        padding-top: env(safe-area-inset-top, 0px);
+    }
+    .line-clamp-2 {
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        line-clamp: 2;
+    }
+    .line-clamp-3 {
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 3;
+        line-clamp: 3;
+    }
+}
